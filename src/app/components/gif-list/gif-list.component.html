@@ -1,0 +1,20 @@
+<div *ngIf="!showLoader && gifList.length > 0" class="row mb-5">
+    <div *ngFor="let g of gifList" class="col-12 col-sm-6 col-md-4 col-lg-3 mt-5">
+        <div class="card">
+            <img [src]="g.images.downsized.url" class="card-img-top" />
+            <div class="card-body">
+                <h6 class="card-title">{{ g.title | uppercase }}</h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Pantalla sin gifs -->
+<div *ngIf="!showLoader && gifList.length == 0 && busqueda != ''">
+    No se han encontrado resultados
+</div>
+
+<!-- LOADER -->
+<div *ngIf="showLoader" class="loader">
+    <img src="../assets/images/loading.gif" class="text-center" />
+</div>
